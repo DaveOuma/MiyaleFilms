@@ -98,6 +98,26 @@ async function EventPageInner({ slug }: { slug: string }) {
             </figure>
           ))}
       </section>
+      <section className="mt-10 rounded-2xl border bg-white p-6">
+  <h2 className="text-lg font-medium">Enquiries</h2>
+  <p className="mt-2 text-sm text-gray-600">
+    Interested in similar coverage? Send an enquiry and share your event date and venue.
+  </p>
+  <div className="mt-4 flex flex-wrap gap-3">
+    <a className="rounded-xl bg-black px-5 py-3 text-sm text-white" href="/contact">
+      Contact
+    </a>
+    <a
+      className="rounded-xl border px-5 py-3 text-sm"
+      href="https://wa.me/254724269201"
+      target="_blank"
+      rel="noreferrer"
+    >
+      WhatsApp
+    </a>
+  </div>
+</section>
+
     </main>
   );
 }

@@ -66,6 +66,9 @@ export default async function HomePage() {
           <a className="rounded-xl bg-black px-5 py-3 text-sm text-white" href="/portfolio">
             View portfolio
           </a>
+	  <a className="rounded-xl border px-5 py-3 text-sm" href="/contact">
+    Book / Contact
+    </a>
           <a
             className="rounded-xl border px-5 py-3 text-sm"
             href="https://wa.me/254724269201"
