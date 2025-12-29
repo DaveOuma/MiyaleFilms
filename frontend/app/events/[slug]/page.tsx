@@ -1,3 +1,4 @@
+import { use } from "react";
 type MediaItem = {
   id: number;
   media_type: "image" | "video";
@@ -46,12 +47,18 @@ async function getEvent(slug: string): Promise<EventDetail> {
   return res.json();
 }
 
-export default async function EventPage({
+export default function EventPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const event = await getEvent(params.slug);
+  const { slug } = use(params);
+
+  return <EventPageInner slug={slug} />;
+}
+
+async function EventPageInner({ slug }: { slug: string }) {
+  const event = await getEvent(slug);
 
   return (
     <main className="mx-auto max-w-5xl p-6">
