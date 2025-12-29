@@ -1,4 +1,6 @@
 import { use } from "react";
+import EventGallery from "./_components/EventGallery";
+
 type MediaItem = {
   id: number;
   media_type: "image" | "video";
@@ -61,7 +63,7 @@ async function EventPageInner({ slug }: { slug: string }) {
   const event = await getEvent(slug);
 
   return (
-    <main className="mx-auto max-w-5xl p-6">
+    <main className="max-w-5xl">
       <a href="/portfolio" className="text-sm text-gray-600 hover:underline">
         ← Back to portfolio
       </a>
@@ -79,25 +81,7 @@ async function EventPageInner({ slug }: { slug: string }) {
         )}
       </header>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
-        {event.media
-          .filter((m) => m.media_type === "image")
-          .map((m) => (
-            <figure key={m.id} className="overflow-hidden rounded-2xl border">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={m.file_url}
-                alt={m.caption || event.title}
-                className="h-full w-full object-cover"
-              />
-              {m.caption && (
-                <figcaption className="p-3 text-xs text-gray-600">
-                  {m.caption}
-                </figcaption>
-              )}
-            </figure>
-          ))}
-      </section>
+    <EventGallery items={event.media} eventTitle={event.title} />
       <section className="mt-10 rounded-2xl border bg-white p-6">
   <h2 className="text-lg font-medium">Enquiries</h2>
   <p className="mt-2 text-sm text-gray-600">
