@@ -4,22 +4,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "MiyaleFilms",
-  description: "Event photography and filmmaking for weddings, celebrations, and public events.",
+  description:
+    "Cinematic event photography and filmmaking for weddings, celebrations, and public events.",
 };
 
-function NavLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+function NavItem({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
+      className="rounded-xl px-4 py-2 bg-gradient-to-r from-indigo-600 text-sm text-white/80 hover:bg-white/10 hover:text-white transition"
     >
-      {children}
+      {label}
     </Link>
   );
 }
@@ -31,52 +26,103 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-50 text-gray-900">
-        <header className="border-b bg-white">
+      <body className="min-h-screen bg-slate-950 text-slate-100">
+        {/* Header */}
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+          <div className="h-[2px] w-full bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500" />
+
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <Link href="/" className="text-lg font-semibold">
-              MiyaleFilms
+            <Link href="/" className="flex items-center gap-3">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 via-fuchsia-500 to-indigo-500 text-slate-950 font-bold">
+                M
+              </span>
+              <span className="text-base font-semibold tracking-wide">
+                MiyaleFilms
+              </span>
             </Link>
 
             <nav className="flex items-center gap-1">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/portfolio">Portfolio</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavItem href="/" label="Home" />
+              <NavItem href="/portfolio" label="Portfolio" />
+              <Link
+                href="/contact"
+                className="ml-1 rounded-xl bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-sm hover:opacity-95 transition"
+              >
+                Contact
+              </Link>
             </nav>
           </div>
         </header>
 
-        <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
+        {/* Page container */}
+        <div className="mx-auto max-w-6xl px-6 py-10 bg-gradient-to-r from-indigo-900">{children}</div>
 
-        <footer className="mt-12 border-t bg-white">
-          <div className="mx-auto max-w-6xl px-6 py-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        {/* Footer */}
+        <footer className="border-t border-white/10 bg-gradient-to-r from-slate-900">
+          <div className="mx-auto max-w-6xl px-6 py-10">
+            <div className="grid gap-10 sm:grid-cols-2">
               <div>
-                <div className="text-sm font-medium">MiyaleFilms</div>
-                <div className="mt-1 text-xs text-gray-600">
-                  Event photography and filmmaking.
+                <div className="rounded-xl p-4 p-3 text-black text-sm font-semibold tracking-wide bg-gradient-to-r from-emerald-200">
+                  MiyaleFilms
+                </div>
+                <p className="mt-3 max-w-sm text-sm text-white/70">
+                  Cinematic coverage for weddings, birthdays and celebrations,
+                  and political/public events.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    className="rounded-xl bg-white/10 px-4 py-2 bg-gradient-to-r from-indigo-600 text-sm text-white hover:bg-white/15 transition"
+                    href="/portfolio"
+                  >
+                    View portfolio
+                  </a>
+                  <a
+                    className="rounded-xl bg-white/10 px-4 py-2 bg-gradient-to-r from-indigo-600 text-sm text-white hover:bg-white/15 transition"
+                    href="/contact"
+                  >
+                    Booking/Enquiries
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3 text-sm">
-                <a className="hover:underline" href="/contact">
-                  Book / Enquiries
-                </a>
-                <a className="hover:underline" href="tel:+254724269201">
-                  Call
-                </a>
-                <a
-                  className="hover:underline"
-                  href="https://wa.me/254724269201"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  WhatsApp
-                </a>
+              <div className="sm:justify-self-end">
+                <div className="text-sm font-semibold tracking-wide">
+                  Quick contact
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a
+                    className="rounded-xl bg-gradient-to-r from-emerald-200 px-4 py-2 text-sm text-black hover:bg-white/15 transition"
+                    href="tel:+254724269201"
+                  >
+                    Call
+                  </a>
+
+                  <a
+                    className="rounded-xl bg-gradient-to-r from-emerald-300 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-white/15 transition"
+                    href="https://wa.me/254724269201"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp
+                  </a>
+
+                  <a
+                    className="rounded-xl bg-gradient-to-r from-emerald-100 px-4 py-2 text-sm text-black hover:bg-white/15 transition"
+                    href="mailto:davidomuga@gmail.com?subject=Booking%20Enquiry"
+                  >
+                    Email
+                  </a>
+                </div>
+
+                <div className="mt-6 text-xs text-white/60">
+                  Nairobi and nationwide coverage.
+                </div>
               </div>
             </div>
 
-            <div className="mt-6 text-xs text-gray-500">
+            <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/50">
               © {new Date().getFullYear()} MiyaleFilms. All rights reserved.
             </div>
           </div>
@@ -85,4 +131,3 @@ export default function RootLayout({
     </html>
   );
 }
-

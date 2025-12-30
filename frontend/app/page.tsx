@@ -55,22 +55,22 @@ export default async function HomePage() {
 
   return (
     <main className="mx-auto max-w-6xl p-6">
-      <header className="rounded-2xl border bg-white p-8 shadow-sm">
-        <h1 className="text-4xl font-semibold">MiyaleFilms</h1>
-        <p className="mt-3 max-w-2xl text-sm text-gray-600">
+      <header className="rounded-2xl bg-gradient-to-r from-indigo-500 p-8 shadow-sm">
+        <h1 className="text-4xl font-semibold text-gray-800">MiyaleFilms</h1>
+        <p className="mt-3 max-w-2xl text-sm text-white">
           Event photography and filmmaking for weddings, birthdays and celebrations,
           and political/public events.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <a className="rounded-xl bg-black px-5 py-3 text-sm text-white" href="/portfolio">
+          <a className="rounded-xl bg-gradient-to-r from-emerald-100 px-5 py-3 text-sm text-black" href="/portfolio">
             View portfolio
           </a>
-	  <a className="rounded-xl border px-5 py-3 text-sm" href="/contact">
-    Book / Contact
+	  <a className="rounded-xl bg-gradient-to-r from-emerald-200 px-5 py-3 text-sm text-black" href="/contact">
+    Book/Contact
     </a>
           <a
-            className="rounded-xl border px-5 py-3 text-sm"
+            className="rounded-xl bg-gradient-to-r from-emerald-300 px-5 py-3 text-sm text-black "
             href="https://wa.me/254724269201"
             target="_blank"
             rel="noreferrer"
@@ -120,7 +120,7 @@ export default async function HomePage() {
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center text-sm text-gray-600">
-                    No cover image yet
+                   Click me
                   </div>
                 )}
               </div>

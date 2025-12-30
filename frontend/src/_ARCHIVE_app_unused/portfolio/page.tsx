@@ -81,8 +81,8 @@ export default async function EventPage({
           ))}
       </section>
 
-      <section className="mt-10 rounded-2xl border bg-white p-6">
-        <h2 className="text-lg font-medium">Enquiries</h2>
+      <section className="mt-10 rounded-2xl border bg-emerald-300 p-6">
+        <h2 className="text-lg font-medium text-black">Enquiries</h2>
         <p className="mt-2 text-sm text-gray-600">
           Interested in coverage for a similar event? Send an enquiry.
         </p>
@@ -95,11 +95,10 @@ export default async function EventPage({
             Contact
           </a>
           <a
-            className="rounded-xl border px-5 py-3 text-sm"
+            className="rounded-xl bg-gradient-to-r from-emerald-300 px-5 py-3 text-sm"
             href="https://wa.me/254724269201"
             target="_blank"
-            rel="noreferrer"
-          >
+            rel="noreferrer">
             WhatsApp
           </a>
         </div>

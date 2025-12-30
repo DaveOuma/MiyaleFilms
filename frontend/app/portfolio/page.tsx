@@ -64,16 +64,16 @@ export default async function PortfolioPage({
   return (
     <main className="mx-auto max-w-6xl p-6">
       <header className="mb-6">
-        <h1 className="text-3xl font-semibold">Portfolio</h1>
-        <p className="mt-2 text-sm text-gray-600">
+        <h1 className="text-4xl font-semibold text-black">Portfolio</h1>
+        <p className="round-xl p-4 p-3 mt-2 text-sm text-white">
           Browse events by category.
         </p>
       </header>
 
       <nav className="mb-8 flex flex-wrap gap-2">
         <a
-          className={`rounded-full border px-4 py-2 text-sm ${
-            !category ? "bg-black text-white" : "bg-white"
+          className={`rounded-full bg-gradient-to-r from-emerald-400 px-5 py-3 text-sm ${
+            !category ? "bg-white text-black" : "bg-white"
           }`}
           href="/portfolio"
         >
@@ -83,8 +83,8 @@ export default async function PortfolioPage({
         {categories.map((c) => (
           <a
             key={c.id}
-            className={`rounded-full border px-4 py-2 text-sm ${
-              category === c.slug ? "bg-black text-white" : "bg-white"
+            className={`rounded-full bg-gradient-to-r from-emerald-300 px-4 py-3 text-black text-sm ${
+              category === c.slug ? "bg-black text-black" : "bg-white"
             }`}
             href={`/portfolio?category=${c.slug}`}
           >
@@ -110,7 +110,7 @@ export default async function PortfolioPage({
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-sm text-gray-600">
-                  No cover image yet
+                  Click me
                 </div>
               )}
             </div>

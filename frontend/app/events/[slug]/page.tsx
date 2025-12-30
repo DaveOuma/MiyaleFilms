@@ -64,7 +64,7 @@ async function EventPageInner({ slug }: { slug: string }) {
 
   return (
     <main className="max-w-5xl">
-      <a href="/portfolio" className="text-sm text-gray-600 hover:underline">
+      <a href="/portfolio" className="text-sm text-black hover:underline">
         ← Back to portfolio
       </a>
 
@@ -82,17 +82,17 @@ async function EventPageInner({ slug }: { slug: string }) {
       </header>
 
     <EventGallery items={event.media} eventTitle={event.title} />
-      <section className="mt-10 rounded-2xl border bg-white p-6">
-  <h2 className="text-lg font-medium">Enquiries</h2>
-  <p className="mt-2 text-sm text-gray-600">
+      <section className="mt-10 rounded-2xl bg-gradient-to-r from-indigo-600 p-6">
+  <h2 className="text-lg font-medium text-black">Enquiries</h2>
+  <p className="mt-2 text-sm text-white">
     Interested in similar coverage? Send an enquiry and share your event date and venue.
   </p>
   <div className="mt-4 flex flex-wrap gap-3">
-    <a className="rounded-xl bg-black px-5 py-3 text-sm text-white" href="/contact">
+    <a className="rounded-xl bg-gradient-to-r from-emerald-400 px-5 py-3 text-sm text-black" href="/contact">
       Contact
     </a>
     <a
-      className="rounded-xl border px-5 py-3 text-sm"
+      className="rounded-xl bg-gradient-to-r from-emerald-400 px-5 py-3 text-sm text-black"
       href="https://wa.me/254724269201"
       target="_blank"
       rel="noreferrer"
