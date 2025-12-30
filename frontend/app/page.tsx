@@ -1,3 +1,5 @@
+import EventCard from "./_components/EventCard";
+
 type Category = {
   id: number;
   name: string;
@@ -57,7 +59,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      {/* Hero: same idea as yours, but cinematic-tuned */}
+      {/* Hero: cinematic-tuned */}
       <header className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-amber-500 opacity-90" />
@@ -97,7 +99,7 @@ export default async function HomePage() {
         </div>
       </header>
 
-      {/* Categories: same placement/idea, styled for dark */}
+      {/* Categories: styled for dark */}
       <section className="mt-10">
         <h2 className="text-xl font-medium text-white">Categories</h2>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -113,7 +115,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured: same layout, cards styled for dark */}
+      {/* Featured: cards styled for dark */}
       <section className="mt-10">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-medium text-white">Featured work</h2>
@@ -126,39 +128,11 @@ export default async function HomePage() {
         </div>
 
         <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((e) => (
-            <a
-              key={e.id}
-              href={`/events/${e.slug}`}
-              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm hover:bg-white/10 transition"
-            >
-              <div className="aspect-[4/3] w-full bg-white/5">
-                {e.cover?.media_type === "image" ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={e.cover.file_url}
-                    alt={e.title}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-sm text-white/60">
-                    Open event
-                  </div>
-                )}
-              </div>
+  {featured.map((e) => (
+    <EventCard key={e.id} e={e} />
+  ))}
+</div>
 
-              <div className="p-4">
-                <div className="text-xs text-white/60">{e.category.name}</div>
-                <h3 className="mt-1 text-lg font-medium text-white">
-                  {e.title}
-                </h3>
-                <div className="mt-2 text-sm text-white/70">
-                  {e.location || "Location not set"}
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
 
         {featured.length === 0 && (
           <p className="mt-6 text-sm text-white/70">
