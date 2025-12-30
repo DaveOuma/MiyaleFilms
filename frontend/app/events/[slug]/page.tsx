@@ -62,11 +62,31 @@ export default function EventPage({
 async function EventPageInner({ slug }: { slug: string }) {
   const event = await getEvent(slug);
 
+  const cover =
+  event.media.find((m) => m.media_type === "image" && m.is_cover) ??
+  event.media.find((m) => m.media_type === "image");
+
   return (
     <main className="max-w-5xl">
       <a href="/portfolio" className="text-sm text-black hover:underline">
         ← Back to portfolio
       </a>
+
+{cover && (
+  <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 bg-black">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      src={cover.file_url}
+      alt={cover.caption || event.title}
+      className="h-[320px] w-full object-cover sm:h-[420px]"
+      loading="eager"
+    />
+    <div className="p-4 text-xs text-white/70">
+      {cover.caption || event.category.name}
+    </div>
+  </div>
+)}
+
 
       <header className="mt-4">
         <div className="text-xs text-gray-500">{event.category.name}</div>

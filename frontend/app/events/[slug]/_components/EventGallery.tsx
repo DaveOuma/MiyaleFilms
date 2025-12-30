@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 type MediaItem = {
   id: number;
@@ -35,7 +36,10 @@ export default function EventGallery({
           <h2 className="text-lg font-medium">Video</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {videos.map((v) => (
-              <figure key={v.id} className="overflow-hidden rounded-2xl border bg-white">
+              <figure
+                key={v.id}
+                className="overflow-hidden rounded-2xl border bg-white"
+              >
                 <video
                   controls
                   preload="metadata"
@@ -57,14 +61,19 @@ export default function EventGallery({
         <h2 className="text-lg font-medium">Gallery</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {images.map((m) => (
-            <figure key={m.id} className="overflow-hidden rounded-2xl border bg-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <figure
+              key={m.id}
+              className="overflow-hidden rounded-2xl border bg-white"
+            >
+              <Image
                 src={m.file_url}
                 alt={m.caption || eventTitle}
+                width={1600}
+                height={1200}
                 className="h-full w-full cursor-zoom-in object-cover"
                 onClick={() => setLightbox(m)}
               />
+
               {m.caption && (
                 <figcaption className="p-3 text-xs text-gray-600">
                   {m.caption}
@@ -82,10 +91,7 @@ export default function EventGallery({
           aria-modal="true"
           onClick={() => setLightbox(null)}
         >
-          <div
-            className="w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between">
               <div className="text-sm text-white/80">
                 {lightbox.caption || eventTitle}
@@ -100,10 +106,11 @@ export default function EventGallery({
             </div>
 
             <div className="overflow-hidden rounded-2xl bg-black">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={lightbox.file_url}
                 alt={lightbox.caption || eventTitle}
+                width={2400}
+                height={1600}
                 className="h-auto w-full object-contain"
               />
             </div>
@@ -113,4 +120,3 @@ export default function EventGallery({
     </section>
   );
 }
-
