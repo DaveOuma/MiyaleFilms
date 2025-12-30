@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type Category = {
   id: number;
   name: string;
@@ -24,7 +26,7 @@ type EventItem = {
 
 export default function EventCard({ e }: { e: EventItem }) {
   return (
-    <a
+    <Link
       href={`/events/${e.slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm hover:bg-white/10 transition"
     >
@@ -58,7 +60,7 @@ export default function EventCard({ e }: { e: EventItem }) {
           {e.location || "Location not set"}
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
