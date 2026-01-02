@@ -22,6 +22,7 @@ type EventItem = {
   featured: boolean;
   category: Category;
   cover: Cover;
+  has_video: boolean;
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
