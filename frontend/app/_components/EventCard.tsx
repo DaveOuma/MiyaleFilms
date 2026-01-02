@@ -30,20 +30,40 @@ export default function EventCard({ e }: { e: EventItem }) {
       href={`/events/${e.slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm hover:bg-white/10 transition"
     >
-      <div className="aspect-[4/3] w-full bg-white/5">
-        {e.cover?.media_type === "image" ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={e.cover.file_url}
-            alt={e.title}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm text-white/60">
-            Open event
-          </div>
-        )}
+      <div className="relative aspect-[4/3] w-full bg-white/5">
+  {e.cover?.media_type === "image" ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={e.cover.file_url}
+      alt={e.title}
+      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  ) : e.cover?.media_type === "video" ? (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-sm text-white/80">
+        Video
       </div>
+    </div>
+  ) : (
+    <div className="flex h-full w-full items-center justify-center text-sm text-white/60">
+      Open event
+    </div>
+  )}
+
+  {e.cover?.media_type === "video" && (
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <div className="flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm text-white backdrop-blur">
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400 text-slate-950">
+          ▶
+        </span>
+        <span className="text-white/90">Play</span>
+      </div>
+    </div>
+  )}
+
+  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0" />
+</div>
+
 
       <div className="p-4">
         <div className="flex items-center justify-between gap-3">

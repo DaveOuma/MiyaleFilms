@@ -71,18 +71,18 @@ export default function RootLayout({
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a
+                  <Link
                     className="rounded-xl bg-white/10 px-4 py-2 bg-gradient-to-r from-indigo-600 text-sm text-white hover:bg-white/15 transition"
                     href="/portfolio"
                   >
                     View portfolio
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="rounded-xl bg-white/10 px-4 py-2 bg-gradient-to-r from-indigo-600 text-sm text-white hover:bg-white/15 transition"
                     href="/contact"
                   >
                     Booking/Enquiries
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -92,28 +92,28 @@ export default function RootLayout({
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <a
+                  <Link
                     className="rounded-xl bg-gradient-to-r from-emerald-200 px-4 py-2 text-sm text-black hover:bg-white/15 transition"
                     href="tel:+254724269201"
                   >
                     Call
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     className="rounded-xl bg-gradient-to-r from-emerald-300 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-white/15 transition"
                     href="https://wa.me/254724269201"
                     target="_blank"
                     rel="noreferrer"
                   >
                     WhatsApp
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     className="rounded-xl bg-gradient-to-r from-emerald-100 px-4 py-2 text-sm text-black hover:bg-white/15 transition"
                     href="mailto:davidomuga@gmail.com?subject=Booking%20Enquiry"
                   >
                     Email
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="mt-6 text-xs text-white/60">
