@@ -1,4 +1,6 @@
+import Link from "next/link";
 import EventCard from "../_components/EventCard";
+
 
 type Category = {
   id: number;
@@ -76,7 +78,7 @@ export default async function PortfolioPage({
       </header>
 
       <nav className="mb-8 flex flex-wrap gap-2">
-        <a
+        <Link
           className={[
             "rounded-full border px-4 py-2 text-sm transition",
             !category
@@ -86,12 +88,12 @@ export default async function PortfolioPage({
           href="/portfolio"
         >
           All
-        </a>
+        </Link>
 
         {categories.map((c) => {
           const isActive = category === c.slug;
           return (
-            <a
+            <Link
               key={c.id}
               className={[
                 "rounded-full border px-4 py-2 text-sm transition",
@@ -102,7 +104,7 @@ export default async function PortfolioPage({
               href={`/portfolio?category=${c.slug}`}
             >
               {c.name}
-            </a>
+            </Link>
           );
         })}
       </nav>
