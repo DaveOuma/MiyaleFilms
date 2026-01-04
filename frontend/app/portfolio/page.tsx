@@ -85,7 +85,7 @@ export default async function PortfolioPage({
               ? "border-white/10 bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500 text-slate-950 font-medium"
               : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10",
           ].join(" ")}
-          href="/portfolio"
+          href="/portfolio" scroll={false}
         >
           All
         </Link>
@@ -101,7 +101,7 @@ export default async function PortfolioPage({
                   ? "border-white/10 bg-emerald-400 text-slate-950 font-medium hover:opacity-95"
                   : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10",
               ].join(" ")}
-              href={`/portfolio?category=${c.slug}`}
+              href={`/portfolio?category=${c.slug}`} scroll={false}
             >
               {c.name}
             </Link>

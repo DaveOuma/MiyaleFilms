@@ -9,7 +9,7 @@ function SkeletonCard() {
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
       <div className="aspect-[4/3] w-full bg-white/5 animate-pulse" />
       <div className="p-4 space-y-3">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <div className="h-3 w-24 rounded bg-white/10 animate-pulse" />
           <div className="h-5 w-16 rounded-full bg-white/10 animate-pulse" />
         </div>
@@ -29,11 +29,9 @@ export default function Loading() {
       </header>
 
       <nav className="mb-8 flex flex-wrap gap-2">
-        <SkeletonChip />
-        <SkeletonChip />
-        <SkeletonChip />
-        <SkeletonChip />
-        <SkeletonChip />
+        {Array.from({ length: 6 }).map((_, i) => (
+          <SkeletonChip key={i} />
+        ))}
       </nav>
 
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -44,4 +42,3 @@ export default function Loading() {
     </main>
   );
 }
-

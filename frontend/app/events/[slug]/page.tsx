@@ -67,7 +67,10 @@ async function EventPageInner({ slug }: { slug: string }) {
 
   return (
     <main className="max-w-5xl">
-      <a href="/portfolio" className="text-sm text-white/70 hover:text-white hover:underline transition">
+      <a
+        href="/portfolio"
+        className="text-sm text-white/70 hover:text-white hover:underline transition"
+      >
         ← Back to portfolio
       </a>
 
@@ -95,7 +98,9 @@ async function EventPageInner({ slug }: { slug: string }) {
 
       <header className="mt-4">
         <div className="text-xs text-white/60">{event.category.name}</div>
-        <h1 className="mt-2 text-3xl font-semibold text-white">{event.title}</h1>
+        <h1 className="mt-2 text-3xl font-semibold text-white">
+          {event.title}
+        </h1>
 
         <div className="mt-2 text-sm text-white/70">
           {[event.location, event.date].filter(Boolean).join(" • ") || " "}
@@ -110,13 +115,13 @@ async function EventPageInner({ slug }: { slug: string }) {
 
       <EventGallery items={event.media} eventTitle={event.title} />
 
-      {/* Enquiries: keep your CTA idea, but cinematic-styled */}
       <section className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
         <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500" />
         <div className="p-6">
           <h2 className="text-lg font-medium text-white">Enquiries</h2>
           <p className="mt-2 text-sm text-white/70">
-            Interested in similar coverage? Send an enquiry and share your event date and venue.
+            Interested in similar coverage? Send an enquiry and share your event
+            date and venue.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-3">
