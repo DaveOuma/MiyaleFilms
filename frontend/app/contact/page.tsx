@@ -267,3 +267,17 @@ export default function ContactPage() {
   );
 }
 
+function Field({
+  label, 
+  children,
+} : {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block"> 
+     <div className="mb-2 text-xs font-medium text-white/70">{label}</div>
+    </label>
+  );
+}
+
