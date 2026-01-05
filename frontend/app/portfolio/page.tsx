@@ -58,9 +58,9 @@ async function getEvents(category?: string): Promise<EventItem[]> {
 export default async function PortfolioPage({
   searchParams,
 }: {
-  searchParams: { category?: string };
+  searchParams?: { category?: string };
 }) {
-  const category = searchParams.category;
+  const category = searchParams?.category;
   const [categories, events] = await Promise.all([
     getCategories(),
     getEvents(category),
