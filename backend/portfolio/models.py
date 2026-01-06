@@ -78,6 +78,14 @@ class Enquiry(models.Model):
         ("public", "Political/Public Event"),
         ("other", "Other"),
     ]
+    event = models.ForeignKey(
+    "Event",
+    null=True,
+    blank=True,
+    on_delete=models.SET_NULL,
+    related_name="enquiries",
+)
+
 
     name = models.CharField(max_length=120)
     phone = models.CharField(max_length=40, blank=True)

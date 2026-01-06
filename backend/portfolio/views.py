@@ -1,6 +1,12 @@
 from rest_framework import generics
-from .models import Category, Event, Enquiry
-from .serializers import CategorySerializer, EventListSerializer, EventDetailSerializer, EnquiryCreateSerializer
+from django.db.models import Exists, OuterRef
+from .models import Category, Event, Enquiry, MediaItem
+from .serializers import (
+    CategorySerializer,
+    EventListSerializer,
+    EventDetailSerializer,
+    EnquiryCreateSerializer,
+)
 
 
 class CategoryListAPIView(generics.ListAPIView):
@@ -12,12 +18,22 @@ class EventListAPIView(generics.ListAPIView):
     serializer_class = EventListSerializer
 
     def get_queryset(self):
-        qs = Event.objects.select_related("category").prefetch_related("media").all()
+        qs = (
+            Event.objects.select_related("category")
+            .prefetch_related("media")
+            .all()
+        )
 
+        # annotate has_video (for EventCard overlay)
+        video_qs = MediaItem.objects.filter(event=OuterRef("pk"), media_type="video")
+        qs = qs.annotate(has_video=Exists(video_qs))
+
+        # filter by category slug
         category_slug = self.request.query_params.get("category")
         if category_slug:
             qs = qs.filter(category__slug=category_slug)
 
+        # filter by featured flag
         featured = self.request.query_params.get("featured")
         if featured is not None:
             featured_val = featured.strip().lower() in {"1", "true", "yes", "y"}
@@ -35,4 +51,3 @@ class EventDetailAPIView(generics.RetrieveAPIView):
 class EnquiryCreateAPIView(generics.CreateAPIView):
     queryset = Enquiry.objects.all()
     serializer_class = EnquiryCreateSerializer
-

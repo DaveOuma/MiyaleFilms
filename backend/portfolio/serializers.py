@@ -25,7 +25,7 @@ class MediaItemSerializer(serializers.ModelSerializer):
 class EventListSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     cover = serializers.SerializerMethodField()
-    has_video = serializers.SerializerMethodField()
+    has_video = serializers.BooleanField(read_only=True)
 
     class Meta:
         model = Event
