@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -59,7 +60,7 @@ class MediaItem(models.Model):
 
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="media")
     media_type = models.CharField(max_length=10, choices=MEDIA_TYPE_CHOICES, default="image")
-    file = models.FileField(upload_to=upload_to_event)
+    file = CloudinaryField(resource_type="auto")
     caption = models.CharField(max_length=240, blank=True)
     order = models.PositiveIntegerField(default=0)
     is_cover = models.BooleanField(default=False)
