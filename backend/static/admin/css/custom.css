@@ -1,0 +1,41 @@
+:root {
+  --primary: #4f46e5;        /* indigo */
+  --secondary: #a21caf;      /* fuchsia */
+  --accent: #10b981;         /* emerald */
+}
+
+/* Top header bar */
+#header {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+/* Header text */
+#header a:link, #header a:visited, #branding h1, #branding h1 a {
+  color: #fff !important;
+}
+
+/* Primary buttons */
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+.button:hover, input[type=submit]:hover, a.button:hover {
+  filter: brightness(0.95);
+}
+
+/* Module headers */
+.module h2, .module caption, .inline-group h2 {
+  background: rgba(79, 70, 229, 0.12);
+  color: #0f172a;
+}
+
+/* Links */
+a:link, a:visited {
+  color: var(--primary);
+}
+a:hover {
+  color: var(--secondary);
+}
